@@ -1,8 +1,4 @@
-// main.c
-// part of "GD32V-blink" project
-// 28 October 2019
-// Dale Wheat
-// https://www.dalewheat.com
+
 
 #include "gd32vf103.h"
 #include "systick.h"
@@ -38,8 +34,8 @@ void main(void) {
     gpio_init(LED_BLU_GPIO_PORT, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, LED_BLU_PIN);
 
     //gpio_init(PUSH_GPIO_PORT, GPIO_MODE_IN_FLOATING, GPIO_OSPEED_50MHZ, PUSH_PIN);
-    gpio_init(PUSH_GPIO_PORT, GPIO_MODE_IPU, GPIO_OSPEED_50MHZ, PUSH_PIN);
-    //gpio_init(PUSH_GPIO_PORT, GPIO_MODE_IPD, GPIO_OSPEED_50MHZ, PUSH_PIN);
+    gpio_init(PUSH_GPIO_PORT, GPIO_MODE_IPU, GPIO_OSPEED_50MHZ, PUSH_PIN); //set GPIOA 3 to import, pull up 
+    //gpio_init(PUSH_GPIO_PORT, GPIO_MODE_IPD, GPIO_OSPEED_50MHZ, PUSH_PIN); //set GPIOA 3 to import, pull down
 
     GPIO_BC(LED_RED_GPIO_PORT) = LED_RED_PIN; // red LED on
     GPIO_BC(LED_GRN_GPIO_PORT) = LED_GRN_PIN; // green LED on
