@@ -1,0 +1,1 @@
+PIN GPIOA3<-->Resister 220<-->push button<-->GND. 
