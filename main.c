@@ -46,7 +46,7 @@ void main(void) {
 
     while(1) {
 
-        if (SET==gpio_input_bit_get(PUSH_GPIO_PORT, PUSH_PIN))
+        if (SET==gpio_input_bit_get(PUSH_GPIO_PORT, PUSH_PIN))  //--check the GPIOA3 if is high or low
         {
                 GPIO_BC(LED_RED_GPIO_PORT) = LED_RED_PIN; // red LED on
                 delay_1ms(200);
