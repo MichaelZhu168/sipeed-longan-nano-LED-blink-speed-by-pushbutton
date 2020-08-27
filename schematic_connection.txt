@@ -1,1 +1,3 @@
-PIN GPIOA3<-->Resister 220<-->push button<-->GND. 
+one way of connection: PIN GPIOA3<-->Resister 220<-->push button<-->GND. in code u need to set the GPIOA3 to input/pull up
+
+another way of connection: PIN GPIOA3<-->Resister 220<-->push button<-->VDD. in code u need to set the GPIOA3 to input/pull down
