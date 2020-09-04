@@ -1,0 +1,41 @@
+﻿串口下载问题
+need to pay attention when use USB-to-Serial to program the sipeed-longan-nano board
+Step1. 
+in "platformio.ini" use below setting
+[env:sipeed-longan-nano]
+platform = gd32v
+framework = gd32vf103-sdk
+board = sipeed-longan-nano
+monitor_speed = 115200    
+upload_protocol = serial  
+; change microcontroller
+board_build.mcu = GD32VF103CBT6
+
+; change MCU frequency
+board_build.f_cpu = 108000000L 
+
+Step 2. 
+Connect USB-to-Serial cable (Prolific PL2303 TA chip inside. I bought it $10 on Amazon) pins with pins of sipeed-longan-nano as below match
+(RX, TX must be across wired. see below)
+
+USB-to-Serial pins---		sipeed-longan-nano pins
+VDD---				VDD
+GND---				GND
+TX---				RX
+RX---				TX
+
+Step3. 
+In Win 10.In Device Manager-> Ports (COM & LPT)
+select the "USB-to-Serial Comm Port (COMx)-->Properties-->Port Settings. 
+set it as below
+Bits per second:	115200
+Data bits: 		8
+Parity:			Even
+Stop bits:		1
+Flow control:		None
+
+other notes:
+1. In the original example code, the longan_led_on()/"GPIO_BOP(LED_GPIO_PORT) = LED_PIN;" is actually turn the LED off. 
+Because the RED LED's negative is connected to PIN GPIOC13(PC13) and the LED's positive is connected to VDD.
+Please see the schematic of sipeed-longan-nano;
+2. sometimes need to "push boot, pusg reset, release boot" twice to make the board to into upload/programming mode.		
